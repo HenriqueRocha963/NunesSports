@@ -1,0 +1,169 @@
+/* Resetando alguns estilos padrão */
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+/* Estilo básico do corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #d6d5d5;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Estilo do cabeçalho */
+header {
+    display: flex;
+    justify-content: center;
+    background-color: #082032;
+    color: #fff;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+header img{
+    height: 60px;
+    margin: 0px 15px;
+}
+
+input[type=number]::-webkit-inner-spin-button{
+  appearance: none; }
+
+.logomarca{
+    display: flex;
+    padding: 5px;
+    color: #09b935;
+}
+
+
+/* Estilo das seções */
+
+.produtos{
+  background-color: #082032;
+  color: #d6d5d5;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.formprodutos{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-wrap: nowrap;
+  
+}
+
+.formprodutos input{
+  margin: 0px 50px 0px 8px;
+  border-radius: 4px;
+  height: 40px;
+}
+
+.formprodutos button{
+  height: 60px;
+  margin-left: 10px;
+}
+/*botoes*/
+#reset{
+  background-color: #c21313;
+  border: #c21313;
+}
+.salvar{
+  background-color: #09b935;
+  border: 1px solid #09b935;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.salvar:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-37 {
+    padding: 10px 30px;
+  }
+}
+
+
+
+.container{
+    margin: 0 auto;
+    padding: 10px 10px;
+    
+    
+}
+
+/*Estilo da Tabela*/
+
+  th, td {
+    border: 1px solid;
+    padding: 15px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  td{
+    text-align: right;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+  }
+
+  #diftd{
+    text-align: center;
+  }
+  #diftd2{
+    background-color: #a8ecb9;
+  }
+  th{
+   height: 50px;
+   background-color: #09b935;
+   color: #fff; 
+  }
+  table{
+    border: 3px solid;
+    border-radius: 4px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+
+
+
+
+/* Estilo do rodapé */
+.footer {
+    
+    background-color: #082032;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    min-width: 100vw;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nunes Sports</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logomarca">
+            <h1>Nunes Sports Estoque</h1>
+        </div>
+        
+    </header>
+    
+        <section class="produtos">
+            <form class="formprodutos" id="formProduto">
+                <input type="hidden" id="productId" value="">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div>
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" required min="1">
+                </div>
+                <div>
+                    <label for="valorcompra">Valor de compra:</label>
+                    <input type="number" id="valorCompra" >
+                </div>
+                <div>
+                    <label for="valorvenda">Valor de venda:</label>
+                    <input type="number" id="valorVenda" >
+                </div>
+                <button type="submit" class="salvar">Salvar</button>
+                <button type="reset" value="Reset" class="salvar" id="reset">Reset</button>
+
+            </form>
+        </section>
+        <div class="container">
+                <section class="viewprodutos">
+                    <table id="tabelaProdutos">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Quantidade</th>
+                                <th>Valor de compra</th>
+                                <th>Valor de venda</th>
+                                <th>Total Compra</th>
+                                <th>Total venda</th>
+                                <th>lucro estimado</th>
+                                <th>Botoes</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                      
+                        
+                    </table>
+                </section>
+            
+        </div>
+    
+    </header>
+    <footer class="footer">
+        <p>&copy; 2024 Henrique Martins. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
