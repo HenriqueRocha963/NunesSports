@@ -1,70 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nunes Sports</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="logomarca">
             <h1>Nunes Sports Estoque</h1>
         </div>
-        
-    </header>
-    
-        <section class="produtos">
-            <form class="formprodutos" id="formProduto">
-                <input type="hidden" id="productId" value="">
-                <div>
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" required>
-                </div>
-                <div>
-                    <label for="quantidade">Quantidade:</label>
-                    <input type="number" id="quantidade" required min="1">
-                </div>
-                <div>
-                    <label for="valorcompra">Valor de compra:</label>
-                    <input type="number" id="valorCompra" >
-                </div>
-                <div>
-                    <label for="valorvenda">Valor de venda:</label>
-                    <input type="number" id="valorVenda" >
-                </div>
-                <button type="submit" class="salvar">Salvar</button>
-                <button type="reset" value="Reset" class="salvar" id="reset">Reset</button>
 
-            </form>
+    </header>
+
+    <section class="produtos">
+        <form class="formprodutos" id="formProduto">
+            <input type="hidden" id="productId" value="">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+            </div>
+            <div>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" required min="1">
+            </div>
+            <div>
+                <label for="valorcompra">Valor de compra:</label>
+                <input type="number" id="valorCompra">
+            </div>
+            <div>
+                <label for="valorvenda">Valor de venda:</label>
+                <input type="number" id="valorVenda">
+            </div>
+            <button type="submit" class="salvar">Salvar</button>
+            <button type="reset" value="Reset" class="salvar" id="reset">Reset</button>
+
+        </form>
+    </section>
+    <div class="container">
+        <section class="viewprodutos">
+            <table id="tabelaProdutos">
+                <thead>
+                    <tr>
+                        <th>Cód</th>
+                        <th>Nome</th>
+                        <th>Qntd</th>
+                        <th>Valor de compra</th>
+                        <th>Valor de venda</th>
+                        <th>Total Compra</th>
+                        <th>Total Venda</th>
+                        <th>Lucro Estimado</th>
+                        <th>Botões</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <!--
+                        <td id="diftd"><input id="edit${produto.id}" type="text" value="nome" disabled></td>
+                        <td id="diftd"><input id="edit${produto.id}" type="number" value="5" disabled></td>
+                        <td><input id="edit${produto.id}" type="text" value="R$10" disabled></td>
+                        <td><input id="edit${produto.id}" type="text" value="R$10" disabled></td>
+                        <td>R$10</td>
+                        <td>R$10</td>
+                        <td id="diftd2">R$10</td>
+                        <td class="teste">
+                            <div class="edicaogamb">
+                                <button class="edit salvar" data-id="${produto.id}">Salvar</button>
+                                <button class="aux salvar" onclick="liberarEdicao(produto.id)" data-id="${produto.id}">Editar</button>
+                            </div>
+                            <div>
+                                <button class="delete salvar" id="reset" data-id="${produto.id}">Excluir</button>
+                            </div>
+                        </td>
+                        -->
+
+            </table>
         </section>
-        <div class="container">
-                <section class="viewprodutos">
-                    <table id="tabelaProdutos">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Quantidade</th>
-                                <th>Valor de compra</th>
-                                <th>Valor de venda</th>
-                                <th>Total Compra</th>
-                                <th>Total venda</th>
-                                <th>lucro estimado</th>
-                                <th>Botoes</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                      
-                        
-                    </table>
-                </section>
-            
-        </div>
-    
+
+    </div>
+
     </header>
     <footer class="footer">
         <p>&copy; 2024 Henrique Martins. Todos os direitos reservados.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        function liberarEdicao(index) {
+            var input = document.getElementById(`editnome${index}`);
+            input.disabled = false;
+            input = document.getElementById(`editqnt${index}`);
+            input.disabled = false;
+            input = document.getElementById(`editvc${index}`);
+            input.disabled = false;
+            input = document.getElementById(`editvv${index}`);
+            input.disabled = false;
+
+            var btn = document.getElementById(`aux${index}`)
+            btn.style.display = 'none';
+
+        }
+
+        function fecharEdicao(index) {
+            var input = document.getElementById(`editnome${index}`);
+            input.disabled = true;
+            input = document.getElementById(`editqnt${index}`);
+            input.disabled = true;
+            input = document.getElementById(`editvc${index}`);
+            input.disabled = true;
+            input = document.getElementById(`editvv${index}`);
+            input.disabled = true;
+
+            var btn = document.getElementById(`aux${index}`)
+            btn.style.display = 'block';
+        }
+
+        function editarProduto(id) {
+
+
+        const nome = document.getElementById(`editnome${id}`).value;
+        const quantidade = parseInt(document.getElementById(`editqnt${id}`).value);
+        const valorCompra = parseFloat(document.getElementById(`editvc${id}`).value);
+        const valorVenda = parseFloat(document.getElementById(`editvv${id}`).value);
+
+        fetch(`/api/produtos/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, quantidade, valorCompra, valorVenda })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao atualizar o produto');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Produto atualizado com sucesso!');
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao atualizar o produto');
+            });
+            
+
+    }
+        
+    </script>
 </body>
+
 </html>

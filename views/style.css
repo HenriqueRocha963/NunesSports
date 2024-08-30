@@ -7,7 +7,7 @@
 
 /* Estilo básico do corpo */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     background-color: #d6d5d5;
     color: #333;
@@ -46,21 +46,26 @@ input[type=number]::-webkit-inner-spin-button{
   color: #d6d5d5;
   display: flex;
   align-items: center;
-  font-size: 30px;
+  font-size: 20px;
   justify-content: center;
   padding-bottom: 20px;
+  
+}
+
+input{
+  font-size: 20px;
 }
 
 .formprodutos{
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   text-wrap: nowrap;
   
 }
 
 .formprodutos input{
-  margin: 0px 50px 0px 8px;
+  margin: 0px 40px 0px 8px;
   border-radius: 4px;
   height: 40px;
 }
@@ -101,12 +106,6 @@ input[type=number]::-webkit-inner-spin-button{
   transform: translateY(-2px);
 }
 
-@media (min-width: 768px) {
-  .button-37 {
-    padding: 10px 30px;
-  }
-}
-
 
 
 .container{
@@ -131,6 +130,8 @@ input[type=number]::-webkit-inner-spin-button{
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
+    
+    box-sizing: border-box;
   }
 
   #diftd{
@@ -139,6 +140,52 @@ input[type=number]::-webkit-inner-spin-button{
   #diftd2{
     background-color: #a8ecb9;
   }
+
+  td input[disabled] {
+    background-color: transparent;  
+    border: none;                   
+    font-size: inherit;             
+    font-family: inherit;           
+    text-align: inherit;             
+    font-weight: inherit;           
+    padding: 0;                     
+    color: inherit;                 
+}
+
+td input{
+  background-color: white;  
+  border: none;                   
+  font-size: inherit;             
+  font-family: inherit;           
+  text-align: inherit;             
+  font-weight: inherit;           
+  padding: 0;                     
+  color: inherit;                 
+}
+
+
+
+.teste{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ gap: 10px;
+  
+}
+
+.edicaogamb{
+  display: flex;
+  position: relative;
+}
+
+
+.aux{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
   th{
    height: 50px;
    background-color: #09b935;

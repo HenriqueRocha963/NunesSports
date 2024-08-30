@@ -15,16 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 data.forEach(produto => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
-                        <td id="diftd">${produto.nome}</td>
-                        <td id="diftd">${produto.quantidade}</td>
-                        <td>R$${produto.valorCompra.toFixed(2)}</td>
-                        <td>R$${produto.valorVenda.toFixed(2)}</td>
+                        <td id="diftd">PC${produto.id}</td>
+                        <td id="diftd"><input id="editnome${produto.id}" type="text" value="${produto.nome}" disabled></td>
+                        <td id="diftd"><input id="editqnt${produto.id}" type="number" value="${produto.quantidade}" disabled></td>
+                        <td><input id="editvc${produto.id}" type="number" value="${produto.valorCompra.toFixed(2)}" disabled></td>
+                        <td><input id="editvv${produto.id}" type="number" value="${produto.valorVenda.toFixed(2)}" disabled></td>
                         <td>R$${(produto.valorCompra*produto.quantidade).toFixed(2)}</td>
                         <td>R$${(produto.valorVenda*produto.quantidade).toFixed(2)}</td>
                         <td id="diftd2">R$${((produto.valorVenda-produto.valorCompra)*produto.quantidade).toFixed(2)}</td>
-                        <td>
-                            <button class="edit salvar" data-id="${produto.id}">Editar</button>
-                            <button class="delete salvar" id="reset" data-id="${produto.id}">Excluir</button>
+                        <td class="teste">
+                            <div class="edicaogamb">
+                                <button class="edit salvar" onclick="fecharEdicao(${produto.id});editarProduto(${produto.id})" data-id="${produto.id}">Salvar</button>
+                                <button class="aux salvar" id="aux${produto.id}" onclick="liberarEdicao(${produto.id})">Editar</button>
+                            </div>
+                            <div>
+                                <button class="delete salvar" id="reset" data-id="${produto.id}">Excluir</button>
+                            </div>
                         </td>
                     `;
                     tabelaProdutos.appendChild(tr);
@@ -68,20 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Função para editar produto
+    
+    
+
     tabelaProdutos.addEventListener('click', (e) => {
-        if (e.target.classList.contains('edit')) { console.log("deudeudeu");
-            const id = e.target.getAttribute('data-id');
-            fetch(`/api/produtos/${id}`)
-                .then(response => response.json())
-                .then(produto => {
-                    document.getElementById('nome').value = produto.nome;
-                    document.getElementById('quantidade').value = produto.quantidade;
-                    document.getElementById('valorCompra').value = produto.valorCompra;
-                    document.getElementById('valorVenda').value = produto.valorVenda;
-                    editingId = id;
-                });
-        }
+        
 
         // Função para excluir produto
         if (e.target.classList.contains('delete')) {
