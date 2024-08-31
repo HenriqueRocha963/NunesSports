@@ -18,7 +18,7 @@ body {
 header {
     display: flex;
     justify-content: center;
-    background-color: #082032;
+    background-color: #202020;
     color: #fff;
     padding: 10px 10px;
     text-align: center;
@@ -42,7 +42,7 @@ input[type=number]::-webkit-inner-spin-button{
 /* Estilo das seções */
 
 .produtos{
-  background-color: #082032;
+  background-color: #202020;
   color: #d6d5d5;
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@ input{
 .formprodutos{
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   text-wrap: nowrap;
   
 }
@@ -123,6 +123,15 @@ input{
     text-align: center;
     font-size: 25px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    
+  }
+
+  .viewprodutos{
+
+    -webkit-box-shadow: 0px 10px 5px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 5px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 5px -10px rgba(0,0,0,0.75);
   }
 
   td{
@@ -205,7 +214,7 @@ td input{
 /* Estilo do rodapé */
 .footer {
     
-    background-color: #082032;
+    background-color: #202020;
     color: #fff;
     text-align: center;
     padding: 10px 0;
